@@ -1,8 +1,14 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
-import SimpleMUITable, {SimpleMUITableProps, SMTTableColumn, SMTTableRow} from '../../components/SimpleMUITable';
+import EnhancedMUITable, {EnhancedMUITableProps} from '.';
+import { EMTTableColumn, EMTTableRow } from './types';
 
-const columns: SMTTableColumn[] = [
+export default {
+  title: 'Components/EnhancedMUITable',
+  component: EnhancedMUITable,
+} as Meta
+
+const columns: EMTTableColumn[] = [
   {
     id: 'country',
     name: 'Country'
@@ -13,7 +19,7 @@ const columns: SMTTableColumn[] = [
   }
 ];
 
-const rows: SMTTableRow[] = [
+const rows: EMTTableRow[] = [
   {
     id: '1',
     entityId: '1',
@@ -32,13 +38,17 @@ const rows: SMTTableRow[] = [
   }
 ];
 
-const Template: Story<SimpleMUITableProps>= (args) => <SimpleMUITable {...args}/>;
+const Template: Story<EnhancedMUITableProps>= (args) => <EnhancedMUITable {...args}/>;
 
-export const Simple = Template.bind({});
-Simple.args = {columns, rows};
+export const SimpleTable = Template.bind({});
+SimpleTable.args = {
+  columns,
+  rows,
+  checkboxProperties :{
+    active: true,
+    allSelected: false
+  },
+  search: true
+};
 
 
-export default {
-  title: 'Components/SimpleMUITable',
-  component: SimpleMUITable,
-} as Meta

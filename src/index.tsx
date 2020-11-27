@@ -1,9 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import SimpleMUITable, { SMTTableColumn, SMTTableRow } from './components/SimpleMUITable';
+import EnhancedMUITable from './components/SimpleMUITable';
+import  { EMTTableColumn, EMTTableRow } from './components/SimpleMUITable/types';
 
 function App() {
-  const columns: SMTTableColumn[] = [
+  const columns: EMTTableColumn[] = [
     {
       id: 'country',
       name: 'Country'
@@ -14,7 +15,7 @@ function App() {
     }
   ];
 
-  const rows: SMTTableRow[] = [
+  const rows: EMTTableRow[] = [
     {
       id: '1',
       entityId: '1',
@@ -34,7 +35,7 @@ function App() {
   ];
   return (
     <div>
-      <SimpleMUITable columns={columns} rows={rows}/>
+      <EnhancedMUITable columns={columns} rows={rows}/>
     </div>
   );
 }
